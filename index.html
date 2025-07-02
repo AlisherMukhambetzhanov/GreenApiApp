@@ -1,12 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Test App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Тест GREEN-API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+    }
+    .left-column, .right-column {
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .left-column {
+      width: 60%;
+      border-right: 1px solid #ccc;
+    }
+    .right-column {
+      width: 40%;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    textarea {
+      width: 100%;
+      height: 90%;
+      resize: none;
+    }
+    .method-block {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .method-block h3 {
+      margin-top: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-	test!
-	<script type="text/javascript" src="script.js"></script>
+  <div class="left-column">
+    <h1>GREEN-API интерфейс</h1>
+
+    <label for="idInstance">ID Instance:</label>
+    <input type="text" id="idInstance" placeholder="Введите ID инстанса" />
+
+    <label for="apiTokenInstance">API Token:</label>
+    <input type="text" id="apiTokenInstance" placeholder="Введите API токен" />
+
+    <div class="method-block">
+      <h3>getSettings</h3>
+      <button onclick="getSettings()">Выполнить</button>
+    </div>
+
+    <div class="method-block">
+      <h3>getStateInstance</h3>
+      <button onclick="getStateInstance()">Выполнить</button>
+    </div>
+
+    <div class="method-block">
+      <h3>sendMessage</h3>
+      <label for="chatId">Chat ID (например, 79990001122@c.us):</label>
+      <input type="text" id="chatId" placeholder="Введите chatId" />
+      <label for="message">Сообщение:</label>
+      <input type="text" id="message" placeholder="Введите текст сообщения" />
+      <button onclick="sendMessage()">Отправить</button>
+    </div>
+
+    <div class="method-block">
+      <h3>sendFileByUrl</h3>
+      <label for="chatIdFile">Chat ID:</label>
+      <input type="text" id="chatIdFile" placeholder="Введите chatId" />
+      <label for="fileUrl">URL файла:</label>
+      <input type="text" id="fileUrl" placeholder="Введите ссылку на файл" />
+      <button onclick="sendFileByUrl()">Отправить файл</button>
+    </div>
+  </div>
+
+  <div class="right-column">
+    <h2>Ответ:</h2>
+    <textarea id="response" readonly></textarea>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
