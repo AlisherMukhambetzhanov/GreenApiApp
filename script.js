@@ -96,3 +96,34 @@ async function sendFileByUrl() {
     displayResponse({ error: error.message });
   }
 }
+
+async function sendFileByUrl() {
+  try {
+    const { idInstance, apiTokenInstance } = getCredentials();
+    const chatId = document.getElementById("chatIdFile").value.trim();
+    const fileUrl = document.getElementById("fileUrl").value.trim();
+
+    if (!chatId || !fileUrl) {
+      alert("Введите Chat ID и ссылку на файл.");
+      return;
+    }
+
+    const response = await fetch(`https://api.green-api.com/waInstance${idInstance}/sendFileByUrl/${apiTokenInstance}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chatId: chatId.endsWith("@c.us") ? chatId : `${chatId}@c.us`,
+        urlFile: fileUrl,
+        fileName: fileUrl.split("/").pop(),
+        caption: "Отправлено через GREEN-API",
+      }),
+    });
+
+    const data = await response.json();
+    displayResponse(data);
+  } catch (error) {
+    displayResponse({ error: error.message });
+  }
+}
+
+

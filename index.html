@@ -57,7 +57,7 @@
     <h1>GREEN-API интерфейс</h1>
 
     <label for="idInstance">ID Instance:</label>
-    <input type="text" id="idInstance" placeholder="Введите ID инстанса" />
+    <input type="text" id="idInstance" placeholder="Введите ID инстанса"/>
 
     <label for="apiTokenInstance">API Token:</label>
     <input type="text" id="apiTokenInstance" placeholder="Введите API токен" />
@@ -77,17 +77,18 @@
       <label for="chatId">Chat ID (например, 79990001122@c.us):</label>
       <input type="text" id="chatId" placeholder="Введите chatId" />
       <label for="message">Сообщение:</label>
-      <input type="text" id="message" placeholder="Введите текст сообщения" />
+      <input type="text" id="message" placeholder="Введите текст сообщения" value="Peace!"/>
       <button onclick="sendMessage()">Отправить</button>
     </div>
 
     <div class="method-block">
       <h3>sendFileByUrl</h3>
       <label for="chatIdFile">Chat ID:</label>
-      <input type="text" id="chatIdFile" placeholder="Введите chatId" />
+  	  <input type="text" id="chatIdFile" placeholder="Введите chatId" />
       <label for="fileUrl">URL файла:</label>
-      <input type="text" id="fileUrl" placeholder="Введите ссылку на файл" />
+	  <input type="text" id="fileUrl" placeholder="Введите ссылку на файл" value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/CN_Tower%2C_Toronto%2C_Canada_%28Unsplash_DJ_kOgH5u0o%29.jpg/500px-CN_Tower%2C_Toronto%2C_Canada_%28Unsplash_DJ_kOgH5u0o%29.jpg"/>
       <button onclick="sendFileByUrl()">Отправить файл</button>
+
     </div>
   </div>
 
